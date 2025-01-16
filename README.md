@@ -1,6 +1,6 @@
-# Nui Federation TypeScript SDK
+# Nui Federation SDK
 
-This SDK connects to the NUI Federation API for getting or creating, revoke, generating batch for NUI from the API.
+This Frontend SDK connects to the NUI Federation API for getting or creating, revoke, generating batch for NUI from the API.
 
 ## Installation
 
