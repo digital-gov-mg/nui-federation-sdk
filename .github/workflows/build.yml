@@ -9,7 +9,7 @@ jobs:
       fail-fast: false
       matrix:
         node-version:
-          - 20.13.1
+          - 20.x
 
     steps:
       - uses: actions/checkout@v3
