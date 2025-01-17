@@ -23,8 +23,12 @@
     "prettier:fix": "prettier --write src",
     "prepublishOnly": "pnpm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digital-gov-mg/nui-federation-sdk"
+  },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "axios": "^1.7.9",
