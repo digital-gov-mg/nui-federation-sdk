@@ -20,7 +20,11 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --ignore-path .gitignore --write \"./src/**/*.+(js|ts|json)\"",
-    "prettier:fix": "prettier --write src"
+    "prettier:fix": "prettier --write src",
+    "prepublishOnly": "pnpm run build"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
     "axios": "^1.7.9",
