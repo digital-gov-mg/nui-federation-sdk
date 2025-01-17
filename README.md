@@ -13,7 +13,7 @@ npm install https://github.com/digital-gov-mg/nui-federation-sdk
 # Example
 
 ```ts
-import NuiFederation from 'nui-federation-sdk'
+import NuiFederation from '@digital-gov-mg/nui-federation-sdk'
 
 // Initialize NUIFederation
 const baseUrl = 'https://example.com/api'
