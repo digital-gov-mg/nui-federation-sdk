@@ -1,9 +1,10 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-import { fetchAccessToken } from './utils'
+import { fetchAccessToken } from '../utils/fetch'
+import { getCookie, setCookie } from '../utils/cookies'
 
 export abstract class Request {
   private client: AxiosInstance
-  private accessToken: string | null = null
+  private accessToken: string | null = getCookie({ name: 'nui_access_token' })
   private isAlreadyFetchingAccessToken = false
 
   constructor(
@@ -22,7 +23,7 @@ export abstract class Request {
         clientId: this.clientId,
         clientSecret: this.clientSecret,
       })
-        .then((res) => (this.accessToken = res.data))
+        .then((res) => setCookie({ name: 'nui_access_token', value: res.data }))
         .catch((err) => console.error(err))
     }
 
@@ -72,7 +73,8 @@ export abstract class Request {
                 clientId: this.clientId,
                 clientSecret: this.clientSecret,
               })
-              this.accessToken = newToken.data
+
+              setCookie({ name: 'nui_access_token', value: newToken.data })
             } catch (err) {
               return Promise.reject(err)
             } finally {
