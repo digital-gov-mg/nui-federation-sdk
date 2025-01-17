@@ -7,13 +7,13 @@ This Frontend SDK connects to the NUI Federation API for getting or creating, re
 ### Package Manager
 
 ```sh
-npm install nui-federation-ts-sdk
+npm install nui-federation-sdk
 ```
 
 # Example
 
 ```ts
-import NuiFederation from 'nui-federation-ts-sdk'
+import NuiFederation from 'nui-federation-sdk'
 
 // Initialize NUIFederation
 const baseUrl = 'https://example.com/api'
