@@ -1,6 +1,6 @@
 {
   "name": "@digital-gov-mg/nui-federation-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This Frontend TypeScript SDK connects to the NUI Federation API for getting or creating, revoke, generating batch for NUI from the API",
   "main": "dist/index.js",
   "module": "dist/index.m.js",
