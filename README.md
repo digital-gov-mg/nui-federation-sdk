@@ -7,7 +7,7 @@ This Frontend SDK connects to the NUI Federation API for getting or creating, re
 ### Package Manager
 
 ```sh
-npm install https://github.com/digital-gov-mg/nui-federation-sdk'
+npm install https://github.com/digital-gov-mg/nui-federation-sdk
 ```
 
 # Example
