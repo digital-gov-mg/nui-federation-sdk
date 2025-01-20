@@ -2,6 +2,13 @@
   "name": "@digital-gov-mg/nui-federation-sdk",
   "version": "0.1.1",
   "description": "This Frontend TypeScript SDK connects to the NUI Federation API for getting or creating, revoke, generating batch for NUI from the API",
+  "keywords": [
+    "NUI",
+    "Federation",
+    "Toolkit",
+    "SDK",
+    "Nui-Federation"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.m.js",
   "unpkg": "dist/index.umd.js",
@@ -27,6 +34,10 @@
     "type": "git",
     "url": "https://github.com/digital-gov-mg/nui-federation-sdk"
   },
+  "bugs": {
+    "url": "https://github.com/digital-gov-mg/nui-federation-sdk/issues"
+  },
+  "homepage": "https://github.com/digital-gov-mg/nui-federation-sdk#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "provenance": true
