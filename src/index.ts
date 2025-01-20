@@ -1,4 +1,4 @@
-import { UIN } from './features/uin'
+import { UIN } from './mods/uin'
 
 export default class NuiFederation {
   public uin: UIN
