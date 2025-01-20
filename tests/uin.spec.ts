@@ -1,14 +1,19 @@
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import { UIN } from '../src/uin-service'
+import { UIN } from '../src/mods/uin'
 
 describe('UINService', () => {
   let mock: MockAdapter
   let uinService: UIN
 
+  const baseUrl = ''
+  const apiKey = ''
+  const clientId = ''
+  const clientSecret = ''
+
   beforeEach(() => {
     mock = new MockAdapter(axios)
-    uinService = new UIN()
+    uinService = new UIN(baseUrl, apiKey, clientId, clientSecret)
   })
 
   afterEach(() => {
