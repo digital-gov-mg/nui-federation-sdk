@@ -34,6 +34,10 @@
     "type": "git",
     "url": "https://github.com/digital-gov-mg/nui-federation-sdk"
   },
+  "bugs": {
+    "url": "https://github.com/digital-gov-mg/nui-federation-sdk/issues"
+  },
+  "homepage": "https://github.com/digital-gov-mg/nui-federation-sdk#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org",
     "provenance": true
