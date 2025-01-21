@@ -1,9 +1,18 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-import { fetchAccessToken } from '../utils/fetch'
-import { getCookie, setCookie } from '../utils/cookies'
+import * as http from 'axios'
 
-export abstract class Request {
-  private client: AxiosInstance
+import {
+  HTTPRequestParameters,
+  HTTPInstance,
+  HTTPResponse,
+} from './http-module'
+
+import { fetchSytemToken } from '../utils/fetch-system-token'
+import { getCookie, setCookie } from '../utils/cookie-processing'
+
+export { http }
+
+export abstract class HTTP {
+  private instance: HTTPInstance
   private accessToken: string | null = getCookie({ name: 'nui_access_token' })
   private isAlreadyFetchingAccessToken = false
 
@@ -18,7 +27,7 @@ export abstract class Request {
     }
 
     if (!this.accessToken) {
-      fetchAccessToken({
+      fetchSytemToken({
         baseUrl: this.baseUrl,
         clientId: this.clientId,
         clientSecret: this.clientSecret,
@@ -27,7 +36,7 @@ export abstract class Request {
         .catch((err) => console.error(err))
     }
 
-    this.client = axios.create({
+    this.instance = http.default.create({
       baseURL: this.baseUrl,
       headers: {
         'Content-Type': 'application/json',
@@ -36,11 +45,11 @@ export abstract class Request {
     })
   }
 
-  protected async request<T>(
-    endpoint: string,
-    options?: AxiosRequestConfig,
-  ): Promise<T> {
-    this.client.interceptors.request.use(
+  protected async request<T>({
+    url,
+    options,
+  }: HTTPRequestParameters): Promise<T> {
+    this.instance.interceptors.request.use(
       (config) => {
         if (this.accessToken) {
           config.headers['Authorization'] = `Bearer ${this.accessToken}`
@@ -50,8 +59,8 @@ export abstract class Request {
       (error) => Promise.reject(error),
     )
 
-    this.client.interceptors.response.use(
-      (response: AxiosResponse) => response,
+    this.instance.interceptors.response.use(
+      (response: HTTPResponse) => response,
       async (error) => {
         if (!error.response) return Promise.reject(error)
 
@@ -68,7 +77,7 @@ export abstract class Request {
             this.isAlreadyFetchingAccessToken = true
 
             try {
-              const newToken = await fetchAccessToken({
+              const newToken = await fetchSytemToken({
                 baseUrl: this.baseUrl,
                 clientId: this.clientId,
                 clientSecret: this.clientSecret,
@@ -84,7 +93,7 @@ export abstract class Request {
 
           originalRequest.headers['Authorization'] =
             `Bearer ${this.accessToken}`
-          return this.client(originalRequest)
+          return this.instance(originalRequest)
         }
 
         return Promise.reject(error)
@@ -92,8 +101,8 @@ export abstract class Request {
     )
 
     try {
-      const response = await this.client.request<T>({
-        url: endpoint,
+      const response = await this.instance.request<T>({
+        url,
         ...options,
       })
 

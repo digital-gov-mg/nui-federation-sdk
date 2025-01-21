@@ -1,8 +1,9 @@
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import { UIN } from '../src/mods/uin'
 
-describe('UINService', () => {
+import { UIN } from '../src/sdk/uin'
+
+describe('UIN', () => {
   let mock: MockAdapter
   let uinService: UIN
 
