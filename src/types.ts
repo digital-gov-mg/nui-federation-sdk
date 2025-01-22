@@ -47,3 +47,8 @@ export interface SystemResponse {
   message: string
   data: Record<string, unknown>
 }
+
+export interface SystemGenerateTokenRequest {
+  clientId: string
+  clientSecret: string
+}
