@@ -5,7 +5,7 @@ import {
   GenerateBatchUINResponse,
 } from '../types'
 
-export class UIN extends HTTP {
+export class Uin extends HTTP {
   async getOrCreateUIN(payload: GetOrCreateUINRequest[]): Promise<UINResponse> {
     return this.request<UINResponse>({
       url: '/uins',
