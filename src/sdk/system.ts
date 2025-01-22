@@ -1,5 +1,9 @@
 import { HTTP } from '../transports'
-import { SystemConsumerRequest, SystemResponse } from '../types'
+import {
+  SystemConsumerRequest,
+  SystemResponse,
+  SystemGenerateTokenRequest,
+} from '../types'
 
 export class System extends HTTP {
   async createConsumer(
@@ -7,6 +11,18 @@ export class System extends HTTP {
   ): Promise<SystemResponse> {
     return this.request<SystemResponse>({
       url: '/systems',
+      options: {
+        method: 'POST',
+        data: payload,
+      },
+    })
+  }
+
+  async generateToken(
+    payload: SystemGenerateTokenRequest,
+  ): Promise<SystemResponse> {
+    return this.request<SystemResponse>({
+      url: '/systems/token',
       options: {
         method: 'POST',
         data: payload,
