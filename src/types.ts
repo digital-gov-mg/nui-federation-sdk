@@ -36,3 +36,14 @@ export interface LogResponse {
   page: number
   limit: number
 }
+
+export interface SystemConsumerRequest {
+  name: string
+  domain: string
+}
+
+export interface SystemResponse {
+  code: number
+  message: string
+  data: Record<string, unknown>
+}

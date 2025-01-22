@@ -1,5 +1,4 @@
 import { HTTP } from '../transports'
-
 import { LogParameters, LogResponse } from '../types'
 
 export class Log extends HTTP {
