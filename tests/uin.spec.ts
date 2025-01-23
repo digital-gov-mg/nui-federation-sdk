@@ -8,13 +8,12 @@ describe('UIN', () => {
   let uinService: UIN
 
   const baseUrl = ''
-  const apiKey = ''
   const clientId = ''
   const clientSecret = ''
 
   beforeEach(() => {
     mock = new MockAdapter(axios)
-    uinService = new UIN(baseUrl, apiKey, clientId, clientSecret)
+    uinService = new UIN(baseUrl, clientId, clientSecret)
   })
 
   afterEach(() => {

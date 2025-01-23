@@ -17,11 +17,10 @@ import NuiFederation from '@digital-gov-mg/nui-federation-sdk'
 
 // Initialize NUIFederation
 const baseUrl = 'https://example.com/api'
-const apiKey = 'your-api-key'
 const clientId = 'your-client-id'
 const clientSecret = 'your-client'
 
-const nuiFederation = NuiFederation(baseUrl, apiKey, clientId, clientSecret)
+const nuiFederation = NuiFederation(baseUrl, clientId, clientSecret)
 
 // Example 1: Get or Create UIN
 citizenDatas = [

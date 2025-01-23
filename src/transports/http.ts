@@ -18,11 +18,10 @@ export abstract class HTTP {
 
   constructor(
     private baseUrl: string,
-    private apiKey: string,
     private clientId: string,
     private clientSecret: string,
   ) {
-    if (!baseUrl || !apiKey || !clientId || !clientSecret) {
+    if (!baseUrl || !clientId || !clientSecret) {
       throw new Error('Please provide all required configuration parameters')
     }
 
@@ -40,7 +39,6 @@ export abstract class HTTP {
       baseURL: this.baseUrl,
       headers: {
         'Content-Type': 'application/json',
-        'api-key': this.apiKey,
       },
     })
   }
