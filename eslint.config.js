@@ -10,6 +10,6 @@ module.exports = [
       'no-console': 'warn',
     },
     ignorePatterns: ['dist', 'node_modules'],
-    files: ['src/**/*.js', 'src/**/*.jsx'],
+    files: ['src/**/*.js', 'src/**/*.ts'],
   },
 ]
