@@ -105,7 +105,7 @@ export abstract class HTTP {
       })
 
       return response.data
-    } catch (error: any) {
+    } catch (error) {
       const errorMessage =
         error.response?.data?.message ||
         error.message ||
