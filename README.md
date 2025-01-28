@@ -1,5 +1,10 @@
 # Nui Federation SDK
 
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/digital-gov-mg/nui-federation-sdk/build.yml?style=for-the-badge)
+![NPM License](https://img.shields.io/npm/l/%40digital-gov-mg%2Fnui-federation-sdk?style=for-the-badge)
+![NPM Version](https://img.shields.io/npm/v/%40digital-gov-mg%2Fnui-federation-sdk?style=for-the-badge)
+![npm bundle size](https://img.shields.io/bundlephobia/min/%40digital-gov-mg%2Fnui-federation-sdk?style=for-the-badge)
+
 This Frontend SDK connects to the NUI Federation API for getting or creating, revoke, generating batch for NUI from the API.
 
 ## Installation

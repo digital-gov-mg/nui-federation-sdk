@@ -31,7 +31,10 @@ export abstract class HTTP {
         clientId: this.clientId,
         clientSecret: this.clientSecret,
       })
-        .then((res) => setCookie({ name: 'nui_access_token', value: res.data }))
+        .then((res) => {
+          setCookie({ name: 'nui_access_token', value: res.data.accessToken })
+          setCookie({ name: 'nui_refresh_token', value: res.data.refreshToken })
+        })
         .catch((err) => console.error(err))
     }
 
@@ -75,13 +78,20 @@ export abstract class HTTP {
             this.isAlreadyFetchingAccessToken = true
 
             try {
-              const newToken = await fetchSytemToken({
+              const res = await fetchSytemToken({
                 baseUrl: this.baseUrl,
                 clientId: this.clientId,
                 clientSecret: this.clientSecret,
               })
 
-              setCookie({ name: 'nui_access_token', value: newToken.data })
+              setCookie({
+                name: 'nui_access_token',
+                value: res.data.accessToken,
+              })
+              setCookie({
+                name: 'nui_refresh_token',
+                value: res.data.refreshToken,
+              })
             } catch (err) {
               return Promise.reject(err)
             } finally {
@@ -105,7 +115,7 @@ export abstract class HTTP {
       })
 
       return response.data
-    } catch (error: any) {
+    } catch (error) {
       const errorMessage =
         error.response?.data?.message ||
         error.message ||

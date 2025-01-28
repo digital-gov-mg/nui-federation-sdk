@@ -10,7 +10,7 @@ export interface GetOrCreateUINRequest {
 export interface UINResponse {
   code: number
   message: string
-  data: any
+  data: Record<string, unknown>
 }
 
 export interface GenerateBatchUINResponse {
