@@ -25,7 +25,7 @@ const baseUrl = 'https://example.com/api'
 const clientId = 'your-client-id'
 const clientSecret = 'your-client'
 
-const nuiFederation = NuiFederation(baseUrl, clientId, clientSecret)
+const nuiFederation = new NuiFederation(baseUrl, clientId, clientSecret)
 
 // Example 1: Get or Create UIN
 citizenDatas = [
